@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
         .math-display { font-size: 1.1rem; margin: 1.5rem 0; padding: 1.2rem; background-color: #ffffff; border-left: 4px solid #3b82f6; border-radius: 0.5rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); overflow-x: auto; }
@@ -22,7 +21,6 @@
     </style>
 </head>
 <body class="p-4 sm:p-8 md:p-12 text-slate-800">
-
     <div id="app" class="max-w-4xl mx-auto bg-white shadow-2xl rounded-3xl p-6 sm:p-10 border border-slate-100">
         <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-slate-900 mb-2">함수의 극한과 비율</h1>
         <p class="text-center text-slate-500 mb-8">$\displaystyle\lim_{x \to \infty}$ 계산 마스터 10단계</p>
@@ -30,16 +28,13 @@
         <!-- Study Page -->
         <div id="page-study" class="page active">
             <h2 class="text-2xl font-bold text-slate-800 mb-6 border-b pb-2">핵심 원리</h2>
-
             <div class="concept-box">
                 <h3 class="text-xl font-bold text-blue-600 mb-3">1. 함수의 비 극한 (핵심 테크닉)</h3>
                 <p class="text-slate-700 mb-2">$\displaystyle\lim_{x \to \infty} f(x) = \infty$일 때, 식을 $f(x)$로 나누어 비율로 변환합니다.</p>
                 <div class="math-display">
                     $$ \lim_{x \to \infty} \{ag(x) + bf(x)\} = c \implies \lim_{x \to \infty} \frac{g(x)}{f(x)} = \frac{-b}{a} $$
                 </div>
-                <p class="text-slate-600 text-sm">* 양변을 $f(x)$로 나누면 $\frac{c}{f(x)} \to 0$이 됨</p>
             </div>
-
             <div class="concept-box">
                 <h3 class="text-xl font-bold text-blue-600 mb-3">2. 분수 극한의 계산</h3>
                 <p class="text-slate-700 mb-2">$\displaystyle\lim_{x \to \infty} \frac{g(x)}{f(x)} = k$를 알면, 분자·분모를 $f(x)$로 나눕니다.</p>
@@ -47,7 +42,6 @@
                     $$ \lim_{x \to \infty} \frac{ag(x) + bf(x)}{cf(x) + dg(x)} = \frac{ak + b}{c + dk} $$
                 </div>
             </div>
-
             <div class="concept-box bg-amber-50 border-amber-200">
                 <h3 class="text-xl font-bold text-amber-600 mb-3">오늘의 문제</h3>
                 <p class="text-slate-700">$\displaystyle\lim_{x \to \infty} f(x) = \infty$, $\displaystyle\lim_{x \to \infty} \{3g(x) - 4f(x)\} = 5$일 때,</p>
@@ -55,12 +49,10 @@
                     $$ \lim_{x \to \infty} \frac{6g(x) + f(x)}{2f(x) - 3g(x)} = \ ? $$
                 </div>
             </div>
-
             <div class="mt-8 mb-4">
                 <label for="username-input" class="block text-sm font-medium text-slate-600 mb-1">학생 이름</label>
                 <input type="text" id="username-input" placeholder="이름을 입력하세요" class="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 transition shadow-sm outline-none">
             </div>
-
             <button onclick="startQuiz()" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl mt-2 transition duration-300 shadow-lg transform hover:scale-[1.01]">
                 문제 풀이 시작하기
             </button>
@@ -77,104 +69,96 @@
                     <div id="progress-bar" class="bg-blue-600 h-2 rounded-full transition-all duration-500" style="width: 0%"></div>
                 </div>
             </div>
-
             <div id="question-area" class="min-h-[250px] p-6 bg-slate-50 rounded-2xl border border-slate-200">
                 <p id="question-text" class="text-xl font-medium text-slate-800 mb-8 leading-relaxed"></p>
                 <div id="options-container" class="space-y-3"></div>
             </div>
-
             <div id="feedback" class="mt-6 p-4 rounded-xl text-white font-semibold hidden"></div>
-
             <div class="flex gap-3 mt-8">
-                <button onclick="prevQuestion()" id="prev-btn" class="hidden px-6 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-4 rounded-xl transition shadow-sm">
-                    이전
-                </button>
-                <button onclick="submitAnswer()" id="submit-btn" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition shadow-md">
-                    정답 확인
-                </button>
-                <button onclick="nextQuestion()" id="next-btn" class="hidden flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-md">
-                    다음 단계
-                </button>
+                <button onclick="prevQuestion()" id="prev-btn" class="hidden px-6 bg-slate-200 hover:bg-slate-300 text-slate-700 font-bold py-4 rounded-xl transition shadow-sm">이전</button>
+                <button onclick="submitAnswer()" id="submit-btn" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold py-4 rounded-xl transition shadow-md">정답 확인</button>
+                <button onclick="nextQuestion()" id="next-btn" class="hidden flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition shadow-md">다음 단계</button>
             </div>
         </div>
 
         <!-- Result Page -->
         <div id="page-results" class="page text-center p-8">
-            <div class="mb-6 text-6xl">🏆</div>
+            <div class="mb-6 text-6xl animate-pulse">🏆</div>
             <h2 class="text-3xl font-extrabold text-slate-800 mb-2">학습 완료!</h2>
             <div class="text-7xl font-black text-blue-600 my-8">
                 <span id="final-score">0</span><span class="text-3xl text-slate-400">/10</span>
             </div>
-            <div id="upload-status" class="text-sm text-slate-500 mb-8 h-6 font-medium"></div>
+            <div id="upload-status" class="text-sm text-slate-500 mb-8 h-6 font-medium">결과 저장 중...</div>
             <button onclick="window.location.reload()" class="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-50 font-bold py-3 px-8 rounded-xl transition shadow-sm">다시 도전하기</button>
         </div>
     </div>
 
     <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzB5ALdepM0Tu4II9BeHGDAdaC0qd2OXJp6Ofubwjc2FZ5f1aChz9ZCb1lBxkp12Xy2/exec';
         let currentQuestionIndex = 0;
         let userName = "";
         let userAnswers = [];
 
         const questions = [
             {
-                q: "**[Step 1: 기본 개념]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$이고 $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$일 때, 이 조건에서 $\\dfrac{g(x)}{f(x)}$의 극한을 구하려면 어떻게 해야 할까요?",
-                options: ["양변에 $f(x)$를 곱한다", "양변을 $f(x)$로 나눈다", "양변을 $g(x)$로 나눈다", "양변에 5를 더한다"],
-                ans: "양변을 $f(x)$로 나눈다",
-                exp: "$f(x) \\to \\infty$이므로, 양변을 $f(x)$로 나누면 $$\\frac{3g(x)}{f(x)} - 4 = \\frac{5}{f(x)} \\to 0$$ 따라서 $\\dfrac{g(x)}{f(x)}$의 극한을 구할 수 있습니다."
+                q: "주어진 조건 $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$에서 양변을 $f(x)$로 나누면 어떤 결과를 얻을 수 있나요?",
+                options: ["$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{4}{3}$", "$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{3}{4}$", "$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{5}{3}$", "$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = -\\frac{4}{3}$"],
+                ans: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{4}{3}$",
+                exp: "$\\displaystyle\\lim_{x \\to \\infty} \\left\\{3\\frac{g(x)}{f(x)} - 4\\right\\} = 0$이므로 $\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{4}{3}$입니다."
             },
             {
-                q: "**[Step 2: 비율 계산]** $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$이고 $f(x) \\to \\infty$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)}$의 값은?",
-                options: ["$\\dfrac{3}{4}$", "$\\dfrac{4}{3}$", "$\\dfrac{5}{3}$", "$-\\dfrac{4}{3}$"],
-                ans: "$\\dfrac{4}{3}$",
-                exp: "양변을 $f(x)$로 나누면: $$\\frac{3g(x) - 4f(x)}{f(x)} = \\frac{5}{f(x)}$$ $$3 \\cdot \\frac{g(x)}{f(x)} - 4 = \\frac{5}{f(x)} \\to 0$$ 따라서 $3 \\cdot \\dfrac{g(x)}{f(x)} = 4$이고, $\\dfrac{g(x)}{f(x)} = \\dfrac{4}{3}$입니다."
+                q: "$\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{5}{f(x)}$의 값은?",
+                options: ["$0$", "$5$", "$\\infty$", "존재하지 않음"],
+                ans: "$0$",
+                exp: "$f(x) \\to \\infty$이면 $\\frac{5}{f(x)} \\to 0$입니다."
             },
             {
-                q: "**[Step 3: 원본 문제]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{6g(x) + f(x)}{2f(x) - 3g(x)}$의 값은?",
-                options: ["$-\\dfrac{17}{2}$", "$-\\dfrac{17}{5}$", "$-\\dfrac{9}{2}$", "$\\dfrac{17}{5}$"],
-                ans: "$-\\dfrac{9}{2}$",
-                exp: "$k = \\dfrac{g(x)}{f(x)} \\to \\dfrac{4}{3}$라 하면, 분자·분모를 $f(x)$로 나누어: $$\\frac{6k + 1}{2 - 3k} = \\frac{6 \\cdot \\frac{4}{3} + 1}{2 - 3 \\cdot \\frac{4}{3}} = \\frac{8 + 1}{2 - 4} = \\frac{9}{-2} = -\\frac{9}{2}$$"
+                q: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{4}{3}$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{6g(x)}{f(x)}$의 값은?",
+                options: ["$6$", "$8$", "$\\frac{8}{3}$", "$4$"],
+                ans: "$8$",
+                exp: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{6g(x)}{f(x)} = 6 \\cdot \\frac{4}{3} = 8$입니다."
             },
             {
-                q: "**[Step 4: 유사 변형]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{2g(x) - 3f(x)\\} = 7$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)}$의 값은?",
-                options: ["$\\dfrac{2}{3}$", "$\\dfrac{3}{2}$", "$\\dfrac{7}{2}$", "$-\\dfrac{3}{2}$"],
-                ans: "$\\dfrac{3}{2}$",
-                exp: "양변을 $f(x)$로 나누면: $$2 \\cdot \\frac{g(x)}{f(x)} - 3 = \\frac{7}{f(x)} \\to 0$$ 따라서 $2 \\cdot \\dfrac{g(x)}{f(x)} = 3$이고, $\\dfrac{g(x)}{f(x)} = \\dfrac{3}{2}$입니다."
+                q: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = \\frac{4}{3}$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{-3g(x)}{f(x)}$의 값은?",
+                options: ["$-4$", "$4$", "$-3$", "$3$"],
+                ans: "$-4$",
+                exp: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{-3g(x)}{f(x)} = -3 \\cdot \\frac{4}{3} = -4$입니다."
             },
             {
-                q: "**[Step 5: 유사 변형]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{2g(x) - 3f(x)\\} = 7$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{4g(x) + f(x)}{f(x) - 2g(x)}$의 값은?",
-                options: ["$-\\dfrac{7}{2}$", "$-\\dfrac{5}{2}$", "$\\dfrac{7}{2}$", "$\\dfrac{5}{2}$"],
-                ans: "$-\\dfrac{7}{2}$",
-                exp: "$k = \\dfrac{g(x)}{f(x)} = \\dfrac{3}{2}$이므로: $$\\frac{4k + 1}{1 - 2k} = \\frac{4 \\cdot \\frac{3}{2} + 1}{1 - 2 \\cdot \\frac{3}{2}} = \\frac{6 + 1}{1 - 3} = \\frac{7}{-2} = -\\frac{7}{2}$$"
+                q: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{6g(x) + f(x)}{f(x)}$를 계산하면?",
+                options: ["$8 + 1 = 9$", "$6 + 1 = 7$", "$8 - 1 = 7$", "$4 + 1 = 5$"],
+                ans: "$8 + 1 = 9$",
+                exp: "$\\displaystyle\\lim_{x \\to \\infty} \\left(\\frac{6g(x)}{f(x)} + 1\\right) = 8 + 1 = 9$입니다."
             },
             {
-                q: "**[Step 6: 응용 변형]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x) - f(x)}{g(x) + f(x)}$의 값은?",
-                options: ["$\\dfrac{1}{7}$", "$-\\dfrac{1}{7}$", "$\\dfrac{7}{1}$", "$-\\dfrac{7}{1}$"],
-                ans: "$\\dfrac{1}{7}$",
-                exp: "$k = \\dfrac{g(x)}{f(x)} = \\dfrac{4}{3}$이므로: $$\\frac{k - 1}{k + 1} = \\frac{\\frac{4}{3} - 1}{\\frac{4}{3} + 1} = \\frac{\\frac{1}{3}}{\\frac{7}{3}} = \\frac{1}{7}$$"
+                q: "$\\displaystyle\\lim_{x \\to \\infty} \\frac{2f(x) - 3g(x)}{f(x)}$를 계산하면?",
+                options: ["$2 - 4 = -2$", "$2 + 4 = 6$", "$2 - 3 = -1$", "$4 - 2 = 2$"],
+                ans: "$2 - 4 = -2$",
+                exp: "$\\displaystyle\\lim_{x \\to \\infty} \\left(2 - \\frac{3g(x)}{f(x)}\\right) = 2 - 4 = -2$입니다."
             },
             {
-                q: "**[Step 7: 응용 변형]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{9g(x) - 2f(x)}{3f(x) + g(x)}$의 값은?",
-                options: ["$\\dfrac{10}{13}$", "$\\dfrac{2}{3}$", "$\\dfrac{13}{10}$", "$2$"],
-                ans: "$\\dfrac{10}{13}$",
-                exp: "$k = \\dfrac{4}{3}$이므로: $$\\frac{9k - 2}{3 + k} = \\frac{9 \\cdot \\frac{4}{3} - 2}{3 + \\frac{4}{3}} = \\frac{12 - 2}{\\frac{13}{3}} = \\frac{10}{\\frac{13}{3}} = \\frac{30}{13} \\cdot \\frac{1}{3} = \\frac{10}{13}$$"
+                q: "따라서 $\\displaystyle\\lim_{x \\to \\infty} \\frac{6g(x) + f(x)}{2f(x) - 3g(x)}$의 값은?",
+                options: ["$-\\frac{9}{2}$", "$\\frac{9}{2}$", "$-\\frac{7}{2}$", "$\\frac{7}{2}$"],
+                ans: "$-\\frac{9}{2}$",
+                exp: "$\\frac{9}{-2} = -\\frac{9}{2}$입니다."
             },
             {
-                q: "**[Step 8: 조건 변형]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{g(x) - 2f(x)\\} = -3$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{3g(x) + f(x)}{g(x) - f(x)}$의 값은?",
-                options: ["$-7$", "$-\\dfrac{7}{3}$", "$7$", "$\\dfrac{7}{3}$"],
-                ans: "$-7$",
-                exp: "$g(x) - 2f(x) \\to -3$에서 $\\dfrac{g(x)}{f(x)} - 2 \\to 0$이므로 $k = 2$. $$\\frac{3k + 1}{k - 1} = \\frac{3 \\cdot 2 + 1}{2 - 1} = \\frac{7}{1} = 7$$ 아, 잠깐! 다시 계산: $\\dfrac{g}{f} \\to 2$이면 $$\\frac{3 \\cdot 2 + 1}{2 - 1} = 7$$ 음, 선지를 다시 확인하면 정답은 $-7$입니다. (부호 오류 수정 필요 - 실제로는 조건에 따라 다름)"
+                q: "**[유사 변형]** $\\displaystyle\\lim_{x \\to \\infty} \\{2g(x) - 3f(x)\\} = 1$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)}$의 값은?",
+                options: ["$\\frac{3}{2}$", "$\\frac{2}{3}$", "$\\frac{1}{2}$", "$3$"],
+                ans: "$\\frac{3}{2}$",
+                exp: "양변을 $f(x)$로 나누면 $2\\cdot\\frac{g(x)}{f(x)} - 3 = 0$이므로 $\\frac{g(x)}{f(x)} = \\frac{3}{2}$입니다."
             },
             {
-                q: "**[Step 9: 심화]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{f(x)}{g(x)}$의 값은?",
-                options: ["$\\dfrac{3}{4}$", "$\\dfrac{4}{3}$", "$\\dfrac{5}{4}$", "$\\dfrac{4}{5}$"],
-                ans: "$\\dfrac{3}{4}$",
-                exp: "$\\dfrac{g(x)}{f(x)} \\to \\dfrac{4}{3}$이므로 역수를 취하면: $$\\frac{f(x)}{g(x)} = \\frac{1}{\\frac{g(x)}{f(x)}} \\to \\frac{1}{\\frac{4}{3}} = \\frac{3}{4}$$"
+                q: "**[응용]** $\\displaystyle\\lim_{x \\to \\infty} \\frac{g(x)}{f(x)} = 2$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{3g(x) + 2f(x)}{f(x) - g(x)}$의 값은?",
+                options: ["$-8$", "$8$", "$-4$", "$4$"],
+                ans: "$-8$",
+                exp: "분자: $3 \\cdot 2 + 2 = 8$, 분모: $1 - 2 = -1$이므로 $\\frac{8}{-1} = -8$입니다."
             },
             {
-                q: "**[Step 10: 심화 종합]** $\\displaystyle\\lim_{x \\to \\infty} f(x) = \\infty$, $\\displaystyle\\lim_{x \\to \\infty} \\{3g(x) - 4f(x)\\} = 5$일 때, $\\displaystyle\\lim_{x \\to \\infty} \\frac{[g(x)]^2 - [f(x)]^2}{[g(x)]^2 + [f(x)]^2}$의 값은?",
-                options: ["$\\dfrac{7}{25}$", "$-\\dfrac{7}{25}$", "$\\dfrac{25}{7}$", "$-\\dfrac{25}{7}$"],
-                ans: "$\\dfrac{7}{25}$",
-                exp: "$k = \\dfrac{g}{f} = \\dfrac{4}{3}$라 하면, $[f(x)]^2$으로 분자·분모를 나누면: $$\\frac{k^2 - 1}{k^2 + 1} = \\frac{\\frac{16}{9} - 1}{\\frac{16}{9} + 1} = \\frac{\\frac{7}{9}}{\\frac{25}{9}} = \\frac{7}{25}$$"
+                q: "**[심화]** 원래 문제의 정답 $\\displaystyle\\lim_{x \\to \\infty} \\frac{6g(x) + f(x)}{2f(x) - 3g(x)}$는?",
+                options: ["$-\\frac{17}{2}$", "$-\\frac{17}{5}$", "$-\\frac{9}{2}$", "$\\frac{17}{5}$"],
+                ans: "$-\\frac{9}{2}$",
+                exp: "$\\frac{g(x)}{f(x)} = \\frac{4}{3}$를 대입하면 $\\frac{6 \\cdot \\frac{4}{3} + 1}{2 - 3 \\cdot \\frac{4}{3}} = \\frac{8+1}{2-4} = \\frac{9}{-2} = -\\frac{9}{2}$입니다."
             }
         ];
 
@@ -182,10 +166,7 @@
 
         function renderMath(element) {
             renderMathInElement(element || document.body, {
-                delimiters: [
-                    {left: "$$", right: "$$", display: true},
-                    {left: "$", right: "$", display: false}
-                ],
+                delimiters: [{left: "$$", right: "$$", display: true}, {left: "$", right: "$", display: false}],
                 throwOnError: false
             });
         }
@@ -204,18 +185,15 @@
 
         function loadQuestion() {
             const q = questions[currentQuestionIndex];
-            const qNum = document.getElementById('current-q-number');
-            const qText = document.getElementById('question-text');
+            document.getElementById('current-q-number').textContent = currentQuestionIndex + 1;
+            document.getElementById('question-text').innerHTML = q.q;
+            document.getElementById('progress-bar').style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
+
             const optContainer = document.getElementById('options-container');
-            const progress = document.getElementById('progress-bar');
             const prevBtn = document.getElementById('prev-btn');
             const submitBtn = document.getElementById('submit-btn');
             const nextBtn = document.getElementById('next-btn');
             const feedbackDiv = document.getElementById('feedback');
-
-            qNum.textContent = currentQuestionIndex + 1;
-            qText.innerHTML = q.q;
-            progress.style.width = `${(currentQuestionIndex / questions.length) * 100}%`;
 
             optContainer.innerHTML = '';
             const existingAnswer = userAnswers[currentQuestionIndex];
@@ -224,22 +202,11 @@
                 const label = document.createElement('label');
                 label.className = "option-label block p-4 bg-white border border-slate-200 rounded-xl shadow-sm";
                 const isChecked = existingAnswer && existingAnswer.selected === opt;
-                label.innerHTML = `
-                    <div class="flex items-center">
-                        <input type="radio" name="quiz-opt" value="${opt}"
-                            class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500 mr-3"
-                            ${isChecked ? 'checked' : ''}
-                            ${existingAnswer ? 'disabled' : ''}>
-                        <span class="text-lg ${existingAnswer ? 'text-slate-600' : ''}">${opt}</span>
-                    </div>`;
+                label.innerHTML = `<div class="flex items-center"><input type="radio" name="quiz-opt" value="${opt}" class="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500 mr-3" ${isChecked ? 'checked' : ''} ${existingAnswer ? 'disabled' : ''}><span class="text-lg ${existingAnswer ? 'text-slate-600' : ''}">${opt}</span></div>`;
                 optContainer.appendChild(label);
             });
 
-            if (currentQuestionIndex === 0) {
-                prevBtn.classList.add('hidden');
-            } else {
-                prevBtn.classList.remove('hidden');
-            }
+            prevBtn.classList.toggle('hidden', currentQuestionIndex === 0);
 
             if (existingAnswer) {
                 showFeedbackUI(existingAnswer.isCorrect, q.ans, q.exp);
@@ -250,7 +217,6 @@
                 submitBtn.classList.remove('hidden');
                 nextBtn.classList.add('hidden');
             }
-
             renderMath(document.getElementById('question-area'));
         }
 
@@ -258,73 +224,51 @@
             const fb = document.getElementById('feedback');
             fb.classList.remove('hidden');
             fb.className = `mt-6 p-5 rounded-xl text-white shadow-lg ${isCorrect ? 'bg-emerald-500' : 'bg-rose-500'}`;
-            fb.innerHTML = `
-                <div class="flex items-center mb-2">
-                    <span class="text-2xl mr-2">${isCorrect ? '🎉' : '❌'}</span>
-                    <span class="text-lg font-bold">${isCorrect ? "정답입니다!" : "아쉽네요."}</span>
-                </div>
-                ${!isCorrect ? `<div class="mb-2">정답: <strong>${ans}</strong></div>` : ''}
-                <div class="text-sm font-normal opacity-90 border-t border-white/20 pt-2 mt-2 leading-relaxed">${exp}</div>
-            `;
+            fb.innerHTML = `<div class="flex items-center mb-2"><span class="text-2xl mr-2">${isCorrect ? '🎉' : '❌'}</span><span class="text-lg font-bold">${isCorrect ? "정답입니다!" : "아쉽네요."}</span></div>${!isCorrect ? `<div class="mb-2">정답: <strong>${ans}</strong></div>` : ''}<div class="text-sm font-normal opacity-90 border-t border-white/20 pt-2 mt-2 leading-relaxed">${exp}</div>`;
             renderMath(fb);
         }
 
         function submitAnswer() {
             const selected = document.querySelector('input[name="quiz-opt"]:checked');
             if (!selected) return alert("보기를 선택해주세요!");
-
             const q = questions[currentQuestionIndex];
             const clean = (s) => s.replace(/\s/g, '');
             const isCorrect = clean(selected.value) === clean(q.ans);
-
-            userAnswers[currentQuestionIndex] = {
-                selected: selected.value,
-                isCorrect: isCorrect
-            };
-
+            userAnswers[currentQuestionIndex] = { selected: selected.value, isCorrect: isCorrect };
             showFeedbackUI(isCorrect, q.ans, q.exp);
-
-            const radios = document.querySelectorAll('input[name="quiz-opt"]');
-            radios.forEach(r => r.disabled = true);
-
+            document.querySelectorAll('input[name="quiz-opt"]').forEach(r => r.disabled = true);
             document.getElementById('submit-btn').classList.add('hidden');
             document.getElementById('next-btn').classList.remove('hidden');
         }
 
         function prevQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                loadQuestion();
-            }
+            if (currentQuestionIndex > 0) { currentQuestionIndex--; loadQuestion(); }
         }
 
         function nextQuestion() {
             currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                loadQuestion();
-            } else {
-                finishQuiz();
-            }
+            if (currentQuestionIndex < questions.length) { loadQuestion(); } else { finishQuiz(); }
         }
 
         function finishQuiz() {
             showPage('page-results');
             const finalScore = userAnswers.filter(a => a && a.isCorrect).length;
             const scoreDisplay = document.getElementById('final-score');
-
             let currentDisplayScore = 0;
             const interval = setInterval(() => {
-                if (currentDisplayScore >= finalScore) {
-                    clearInterval(interval);
-                    scoreDisplay.textContent = finalScore;
-                } else {
-                    currentDisplayScore++;
-                    scoreDisplay.textContent = currentDisplayScore;
-                }
+                if (currentDisplayScore >= finalScore) { clearInterval(interval); scoreDisplay.textContent = finalScore; }
+                else { currentDisplayScore++; scoreDisplay.textContent = currentDisplayScore; }
             }, 100);
             if(finalScore === 0) scoreDisplay.textContent = 0;
+            sendResult(finalScore);
+        }
 
-            document.getElementById('upload-status').textContent = "학습 완료!";
+        function sendResult(finalScore) {
+            const status = document.getElementById('upload-status');
+            const data = { name: userName, score: finalScore, quizTitle: "2501-함수의극한비율", date: new Date().toLocaleString() };
+            fetch(GOOGLE_SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: JSON.stringify(data) })
+            .then(() => { status.textContent = "결과가 안전하게 저장되었습니다."; status.classList.replace('text-slate-500', 'text-emerald-600'); })
+            .catch(() => { status.textContent = "결과 저장에 실패했습니다."; status.classList.replace('text-slate-500', 'text-rose-600'); });
         }
 
         window.onload = () => renderMath();
